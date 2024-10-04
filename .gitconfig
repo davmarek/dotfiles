@@ -1,0 +1,5 @@
+[user]
+    email = davidmarek14@gmail.com
+    name = David Marek
+[push]
+    autoSetupRemote = true
