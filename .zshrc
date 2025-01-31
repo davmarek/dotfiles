@@ -34,7 +34,7 @@ eval "$(starship init zsh)"
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-# History
+# History settings
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -65,7 +65,7 @@ alias fcd='cd $(fzf | (read dir && [ -n "$dir" ] && dirname "$dir" || echo "$PWD
 alias lg='lazygit'
 
 # Shell integrations
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 

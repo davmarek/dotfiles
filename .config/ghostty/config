@@ -1,9 +1,11 @@
 background = "15191e"
-font-family = "JetBrains Mono" 
 font-size = 16
 
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-theme = "iTerm2 Dark Background"
+theme = "tokyonight_night"
+
+window-width = 100
+window-height = 30
