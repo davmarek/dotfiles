@@ -65,19 +65,8 @@ alias fcd='cd $(fzf | (read dir && [ -n "$dir" ] && dirname "$dir" || echo "$PWD
 alias lg='lazygit'
 
 # Shell integrations
-eval "$(thefuck --alias)"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
-
-
-
-# pnpm
-#export PNPM_HOME="/Users/davidmarek/Library/pnpm"
-#case ":$PATH:" in
-#  *":$PNPM_HOME:"*) ;;
-#  *) export PATH="$PNPM_HOME:$PATH" ;;
-#esac
-# pnpm end
 
 # Disable Homebrew auto-update
 export HOMEBREW_NO_AUTO_UPDATE=1
