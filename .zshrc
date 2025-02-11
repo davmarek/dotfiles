@@ -20,6 +20,7 @@ zinit light mfaerevaag/wd
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::dotnet
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -65,8 +66,14 @@ alias fcd='cd $(fzf | (read dir && [ -n "$dir" ] && dirname "$dir" || echo "$PWD
 alias lg='lazygit'
 
 # Shell integrations
-eval "$(zoxide init zsh)"
-source <(fzf --zsh)
+if type "zoxide" > /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
+if type "fzf" > /dev/null; then
+  source <(fzf --zsh)
+fi
+
 
 # Disable Homebrew auto-update
 export HOMEBREW_NO_AUTO_UPDATE=1
