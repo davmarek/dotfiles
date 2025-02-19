@@ -1,5 +1,7 @@
 [user]
-    email = davidmarek14@gmail.com
-    name = David Marek
+	email = davidmarek14@gmail.com
+    	name = David Marek
 [push]
-    autoSetupRemote = true
+    	autoSetupRemote = true
+[init]
+	defaultBranch = main
