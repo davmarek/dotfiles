@@ -1,3 +1,6 @@
+# Inspired by Dreams of Autonomy: https://www.youtube.com/watch?v=ud7YxC33Z3w
+
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -58,8 +61,8 @@ zstyle ':completion:*' menu select
 # Aliases
 alias c='clear'
 alias ls='ls --color'
-alias ll='eza --long --header --sort=type --no-user'
-alias la='eza --long --all --header --sort=type --no-user'
+alias ll='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%M"'
+alias la='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%M" --all'
 alias rmnm='rm -rf node_modules'
 alias gfop='git fetch origin -pP'
 alias fcd='cd $(fzf | (read dir && [ -n "$dir" ] && dirname "$dir" || echo "$PWD"))'
