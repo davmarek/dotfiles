@@ -5,3 +5,7 @@
     	autoSetupRemote = true
 [init]
 	defaultBranch = main
+[rerere]
+	enabled = true
+[pull]
+	rebase = true
