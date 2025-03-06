@@ -20,9 +20,13 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light mfaerevaag/wd
 
 # Add in snippets
+zinit ice wait lucid
 zinit snippet OMZP::git
+zinit ice wait lucid
 zinit snippet OMZP::sudo
+zinit ice wait lucid
 zinit snippet OMZP::command-not-found
+zinit ice wait lucid
 zinit snippet OMZP::dotnet
 
 # Load completions
@@ -65,8 +69,9 @@ alias ll='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%
 alias la='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%M" --all'
 alias rmnm='rm -rf node_modules'
 alias gfop='git fetch origin -pP'
-alias fcd='cd $(fzf | (read dir && [ -n "$dir" ] && dirname "$dir" || echo "$PWD"))'
+alias fcd='cd $(find . -type d | fzf | (read dir && [ -n "$dir" ] && dirname "$dir" || echo "$PWD"))'
 alias lg='lazygit'
+alias newvenv="python3 -m venv .venv && source .venv/bin/activate"
 
 # Shell integrations
 if type "zoxide" > /dev/null; then
@@ -80,6 +85,9 @@ fi
 
 # Disable Homebrew auto-update
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Add homebrew Node.js 22 to PATH
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 
 # Herd injected PHP binary.
 export PATH="/Users/davidmarek/Library/Application Support/Herd/bin/":$PATH
