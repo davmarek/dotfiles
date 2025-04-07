@@ -9,3 +9,5 @@
 	enabled = true
 [pull]
 	rebase = true
+[rebase]
+	autostash = true
