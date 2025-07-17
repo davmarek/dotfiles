@@ -30,6 +30,11 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
+# Fix the run-help alias to man
+unalias run-help
+autoload -Uz run-help
+
+
 # Load Starship prompt
 eval "$(starship init zsh)"
 
@@ -61,8 +66,13 @@ zstyle ':completion:*' menu select
 # Aliases
 alias c='clear'
 alias ls='ls --color'
-alias ll='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%M"'
-alias la='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%M" --all'
+if type eza &>/dev/null; then
+	alias ll='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%M"'
+	alias la='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%M" --all'
+else
+	alias ll='ls -l -F'
+	alias la='ls -l -F -A'
+fi
 alias rmnm='rm -rf node_modules'
 alias gfop='git fetch origin -pP'
 alias fcd='cd $(find . -type d | fzf | (read dir && [ -n "$dir" ] && dirname "$dir" || echo "$PWD"))'
@@ -82,18 +92,23 @@ fi
 # Disable Homebrew auto-update
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+# Add tmux-sessionizer
+export PATH="$PATH":"$HOME/.local/bin/"
+bindkey -s ^f "tmux-sessionizer\n"
+
 # Add homebrew Node.js 22 to PATH
 export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 
 # Herd injected PHP binary.
 export PATH="/Users/davidmarek/Library/Application Support/Herd/bin/":$PATH
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/82/"
-# Herd injected PHP 8.1 configuration.
-export HERD_PHP_81_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/81/"
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/83/"
 # Herd injected NVM configuration
 export NVM_DIR="/Users/davidmarek/Library/Application Support/Herd/config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
+
+
+export PATH="$HOME/.dotnet/tools:$PATH"
 

@@ -11,3 +11,5 @@
 	rebase = true
 [rebase]
 	autostash = true
+[core]
+	autocrlf = input
