@@ -4,8 +4,5 @@ disabled=true
 [nodejs]
 disabled=true
 
-#[python]
-#disabled=true
-
 [php]
 disabled=true
