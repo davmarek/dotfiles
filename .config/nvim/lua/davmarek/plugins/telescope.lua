@@ -104,7 +104,20 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>sn', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
+      builtin.find_files {
+        cwd = vim.fn.stdpath 'config',
+        prompt_title = 'Neovim Config Files',
+      }
     end, { desc = '[S]earch [N]eovim files' })
+
+    -- Shortcut for searching dotfiles
+    vim.keymap.set('n', '<leader>sc', function()
+      builtin.find_files {
+        cwd = vim.fn.expand '$HOME/.dotfiles',
+        hidden = true,
+        file_ignore_patterns = { '.git/', '.config/nvim/' },
+        prompt_title = 'Dotfiles',
+      }
+    end, { desc = '[S]earch dotfiles [C]onfig' })
   end,
 }
