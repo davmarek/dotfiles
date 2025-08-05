@@ -1,23 +1,4 @@
 --[[
-
-=====================================================================
-=====================================================================
-========                                    .-----.          ========
-========         .----------------------.   | === |          ========
-========         |.-""""""""""""""""""-.|   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||   KICKSTART.NVIM   ||   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||                    ||   |-----|          ========
-========         ||:Tutor              ||   |:::::|          ========
-========         |'-..................-'|   |____o|          ========
-========         `"")----------------(""`   ___________      ========
-========        /::::::::::|  |::::::::::\  \ no mouse \     ========
-========       /:::========|  |==hjkl==:::\  \ required \    ========
-========      '""""""""""""'  '""""""""""""'  '""""""""""'   ========
-========                                                     ========
-=====================================================================
-=====================================================================
 If you don't know anything about Lua, I recommend taking some time to read through
 a guide. One possible example which will only take 10-15 minutes:
   - https://learnxinyminutes.com/docs/lua/
@@ -50,11 +31,14 @@ vim.g.have_nerd_font = true
 vim.o.number = true
 vim.o.relativenumber = true
 
-vim.o.expandtab = true
+-- Set the default indentation to 4
+vim.o.tabstop = 4
 vim.o.softtabstop = 4
-vim.o.autoindent = true
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.smartindent = true
 
--- Enable mouse mode, can be useful for resizing splits for example!
+-- Enable mouse mode for all modes (can be useful for resizing splits)
 vim.o.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
@@ -115,3 +99,6 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+-- Hide .DS_Store files in Netrw
+vim.g.netrw_list_hide = '.DS_Store'
