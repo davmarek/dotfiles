@@ -36,6 +36,8 @@ return {
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       javascript = { 'biome', 'biome-organize-imports' },
+      typescript = { 'biome', 'biome-organize-imports' },
+      go = { 'gofmt' },
     },
   },
 }

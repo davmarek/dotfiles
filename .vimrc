@@ -55,3 +55,4 @@ endif
 " Custom settings
 set number relativenumber 
 set scrolloff=5
+set nobackup

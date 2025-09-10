@@ -75,6 +75,7 @@ else
 fi
 alias rmnm='rm -rf node_modules'
 alias gfop='git fetch origin -pP'
+alias vim="nvim"
 alias fcd='cd $(find . -type d | fzf | (read dir && [ -n "$dir" ] && dirname "$dir" || echo "$PWD"))'
 alias lg='lazygit'
 alias newvenv="python3 -m venv .venv && source .venv/bin/activate"
@@ -108,3 +109,6 @@ export PATH="/Users/davidmarek/Library/Application Support/Herd/bin/":$PATH
 export HERD_PHP_83_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/83/"
 # Herd injected PHP 8.2 configuration.
 export HERD_PHP_82_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/82/"
+
+
+export PATH="$HOME/personal/bash/upm/:$PATH"
