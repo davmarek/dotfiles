@@ -11,11 +11,11 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Paste/replace visual selection and keep it in register (save the selection in to _d register)
-vim.keymap.set('v', '<leader>p', '"_dP', { desc = '[P]aste without replacing yank register' })
+-- Paste/replace visual selection and keep it in register (save the selection into register _)
+vim.keymap.set('v', '<leader>p', '"_dP', { desc = '[P]aste without replacing unnamed register' })
 
 -- Delete without saving to the default yank register
-vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]])
+vim.keymap.set({ 'n', 'v' }, '<leader>d', [["_d]], { desc = '[D]elete without replacing unnamed register' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

@@ -65,6 +65,9 @@ vim.o.smartcase = true
 -- Keep signcolumn on by default
 vim.o.signcolumn = 'yes'
 
+-- Vertical line at 80 characters to tell me when I made a doo doo
+vim.o.colorcolumn = "80"
+
 -- Decrease update time
 vim.o.updatetime = 250
 

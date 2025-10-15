@@ -73,9 +73,12 @@ else
 	alias ll='ls -l -F'
 	alias la='ls -l -F -A'
 fi
+alias vim="nvim"
+alias v="nvim"
+alias nivm="nvim"
+
 alias rmnm='rm -rf node_modules'
 alias gfop='git fetch origin -pP'
-alias vim="nvim"
 alias fcd='cd $(find . -type d | fzf | (read dir && [ -n "$dir" ] && dirname "$dir" || echo "$PWD"))'
 alias lg='lazygit'
 alias newvenv="python3 -m venv .venv && source .venv/bin/activate"
@@ -94,7 +97,7 @@ fi
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Add tmux-sessionizer
-export PATH="$PATH":"$HOME/.local/bin/"
+export PATH="$PATH":"$HOME/.local/bin"
 bindkey -s ^f "tmux-sessionizer\n"
 
 # Add homebrew Node.js 22 to PATH
@@ -111,4 +114,3 @@ export HERD_PHP_83_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/H
 export HERD_PHP_82_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/82/"
 
 
-export PATH="$HOME/personal/bash/upm/:$PATH"
