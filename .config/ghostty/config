@@ -4,7 +4,7 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-theme = "tokyonight_night"
+theme = "TokyoNight Night"
 
 window-width = 100
 window-height = 30
