@@ -53,7 +53,7 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
     keys = {
-      { '<leader>st', ':TodoQuickFix keywords=TODO,FIX<CR>', desc = '[S]earch Project [T]odos' },
+      { '<leader>td', ':TodoQuickFix keywords=TODO,FIX<CR>', desc = '[S]earch Project [T]odos' },
     },
   },
 
