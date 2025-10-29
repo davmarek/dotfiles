@@ -30,14 +30,14 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
-# Fix the run-help alias to man
-unalias run-help
-autoload -Uz run-help
-
+# macOS-only: restore native zsh help command (macOS aliases it to 'man' by default)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  unalias run-help 2>/dev/null
+  autoload -Uz run-help
+fi
 
 # Load Starship prompt
 eval "$(starship init zsh)"
-
 
 # Keybindings
 bindkey '^[[A' history-search-backward
@@ -66,6 +66,7 @@ zstyle ':completion:*' menu select
 # Aliases
 alias c='clear'
 alias ls='ls --color'
+
 if type eza &>/dev/null; then
 	alias ll='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%M"'
 	alias la='eza --long --header --sort=type --no-user --time-style="+%d-%m-%Y %H:%M" --all'
@@ -73,9 +74,12 @@ else
 	alias ll='ls -l -F'
 	alias la='ls -l -F -A'
 fi
-alias vim="nvim"
-alias v="nvim"
-alias nivm="nvim"
+
+if type nvim &>/dev/null; then
+  alias vim="nvim"
+  alias v="nvim"
+  alias nivm="nvim"
+fi
 
 alias rmnm='rm -rf node_modules'
 alias gfop='git fetch origin -pP'
@@ -90,6 +94,11 @@ fi
 
 if type "fzf" > /dev/null; then
   source <(fzf --zsh)
+fi
+
+
+if type "uv" > /dev/null; then
+  eval "$(uv generate-shell-completion zsh)"
 fi
 
 
@@ -113,4 +122,33 @@ export HERD_PHP_83_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/H
 # Herd injected PHP 8.2 configuration.
 export HERD_PHP_82_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/82/"
 
+# Temporary tensorflow environment alias
+
+function create_tensor_venv(){
+  if typeset -f deactivate; then
+
+    echo "Deactivating existing environment"
+    deactivate
+  fi
+
+  echo "Deleting the .venv folder"
+  rm -rf .venv
+
+  echo "Creating a new environment in .venv"
+  python3.10 -m venv .venv
+
+  echo "Sourcing the new environment"
+  source .venv/bin/activate
+
+  echo "Upgrading pip"
+  python -m pip install -U pip
+
+  echo "Installing tensorflow 2.18.1"
+  pip install tensorflow==2.18.1
+
+  echo "Installing tensorflow-metal"
+  pip install tensorflow-metal
+
+  echo "Done creating a new venv for tensorflow"
+}
 

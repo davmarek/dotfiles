@@ -2,7 +2,7 @@
 --  See `:help vim.keymap.set()`
 
 -- Open Netrw file explorer
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = '[P]roject [V]iew (Netrw)' })
+vim.keymap.set('n', '<leader>pv', '<cmd>Oil<CR>', { desc = '[P]roject [V]iew (Netrw)' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
