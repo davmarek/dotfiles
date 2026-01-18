@@ -240,10 +240,13 @@ return {
           organize_imports_on_format = true,
           enable_import_completion = true,
         },
+        html = {},
+        cssls = {},
         bashls = {},
         clangd = {},
         gopls = {},
         ts_ls = {},
+        zls = {},
       }
 
       -- Ensure the servers and tools above are installed

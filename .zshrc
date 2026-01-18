@@ -107,6 +107,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Add tmux-sessionizer
 export PATH="$PATH":"$HOME/.local/bin"
+# Bing Ctrl+f to run tmux-sessionizer
 bindkey -s ^f "tmux-sessionizer\n"
 
 # Add homebrew Node.js 22 to PATH
@@ -115,40 +116,28 @@ export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 # Add dotnet tools to PATH
 export PATH="$HOME/.dotnet/tools:$PATH"
 
+# Add GOPATH to PATH
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
+
 # Herd injected PHP binary.
 export PATH="/Users/davidmarek/Library/Application Support/Herd/bin/":$PATH
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/84/"
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/83/"
 # Herd injected PHP 8.2 configuration.
 export HERD_PHP_82_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/82/"
 
-# Temporary tensorflow environment alias
+# bun completions
+[ -s "/Users/davidmarek/.bun/_bun" ] && source "/Users/davidmarek/.bun/_bun"
 
-function create_tensor_venv(){
-  if typeset -f deactivate; then
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
-    echo "Deactivating existing environment"
-    deactivate
-  fi
+# Added by Antigravity
+export PATH="/Users/davidmarek/.antigravity/antigravity/bin:$PATH"
 
-  echo "Deleting the .venv folder"
-  rm -rf .venv
 
-  echo "Creating a new environment in .venv"
-  python3.10 -m venv .venv
-
-  echo "Sourcing the new environment"
-  source .venv/bin/activate
-
-  echo "Upgrading pip"
-  python -m pip install -U pip
-
-  echo "Installing tensorflow 2.18.1"
-  pip install tensorflow==2.18.1
-
-  echo "Installing tensorflow-metal"
-  pip install tensorflow-metal
-
-  echo "Done creating a new venv for tensorflow"
-}
 
