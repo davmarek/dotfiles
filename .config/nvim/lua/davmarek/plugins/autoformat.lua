@@ -30,11 +30,10 @@ return {
       end
     end,
     formatters_by_ft = {
-      lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
-      python = { 'isort', 'black', timeout_ms = 800 },
-      --
       -- You can use 'stop_after_first' to run the first available formatter from the list
+      lua = { 'stylua' },
+      python = { 'isort', 'black', timeout_ms = 800 },
       javascript = { 'biome', 'biome-organize-imports' },
       typescript = { 'biome', 'biome-organize-imports' },
       go = { 'gofmt' },
