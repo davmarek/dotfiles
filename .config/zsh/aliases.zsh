@@ -11,9 +11,9 @@ else
 fi
 
 if type nvim &>/dev/null; then
-  alias vim="nvim"
-  alias v="nvim"
   alias nivm="nvim"
+  # alias vim="nvim"
+  # alias v="nvim"
 fi
 
 alias rmnm='rm -rf node_modules'

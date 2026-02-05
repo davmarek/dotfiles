@@ -61,4 +61,6 @@ if type "uv" > /dev/null 2>&1; then
   eval "$(uv generate-shell-completion zsh)"
 fi
 
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 

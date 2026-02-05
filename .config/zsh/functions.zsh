@@ -21,3 +21,10 @@ md2pdf() {
     fi
     echo "Done."
 }
+
+
+normalizemoji(){
+    for f in *; do
+        mv "$f" "$(echo "$f" | sed $'s/\ufe0f//g')"
+    done
+}

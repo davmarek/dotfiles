@@ -37,6 +37,7 @@ return {
       javascript = { 'biome', 'biome-organize-imports' },
       typescript = { 'biome', 'biome-organize-imports' },
       go = { 'gofmt' },
+      php = { 'pint' },
     },
   },
 }

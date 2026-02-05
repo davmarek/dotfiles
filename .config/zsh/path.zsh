@@ -15,12 +15,8 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Herd injected PHP binary.
 export PATH="/Users/davidmarek/Library/Application Support/Herd/bin/":$PATH
-# Herd injected PHP 8.4 configuration.
-export HERD_PHP_84_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/84/"
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/83/"
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/82/"
 
 # bun completions
 [ -s "/Users/davidmarek/.bun/_bun" ] && source "/Users/davidmarek/.bun/_bun"
@@ -31,3 +27,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Antigravity
 export PATH="/Users/davidmarek/.antigravity/antigravity/bin:$PATH"
+
+
+# Add Android platform-tools
+export PATH="$HOME/Library/Android/sdk/platform-tools/:$PATH"
