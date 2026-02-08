@@ -61,6 +61,9 @@ if type "uv" > /dev/null 2>&1; then
   eval "$(uv generate-shell-completion zsh)"
 fi
 
+# Local-only zsh config
+[ -s "$HOME/.config/zsh/local.zsh" ] && source "$HOME/.config/zsh/local.zsh"
+
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
