@@ -64,3 +64,11 @@ fi
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
+if [[ $OSTYPE == "darwin"* ]]; then
+  # Herd injected PHP 8.3 configuration.
+  export HERD_PHP_83_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/83/"
+
+  # Herd injected PHP 8.2 configuration.
+  export HERD_PHP_82_INI_SCAN_DIR="/Users/davidmarek/Library/Application Support/Herd/config/php/82/"
+fi
+
