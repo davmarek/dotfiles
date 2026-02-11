@@ -1,3 +1,9 @@
+local excluded_files = {
+  ['..'] = true,
+  ['.git'] = true,
+  ['.DS_Store'] = true,
+}
+
 return {
   'stevearc/oil.nvim',
   ---@module 'oil'
@@ -6,6 +12,13 @@ return {
     columns = {
       'icon',
       'size',
+    },
+    skip_confirm_for_simple_edits = true,
+    view_options = {
+      show_hidden = true,
+      is_always_hidden = function(name, _)
+        return excluded_files[name] ~= nil
+      end,
     },
   },
   -- Optional dependencies
